@@ -1,5 +1,6 @@
 // pages/Moi.jsx
 import { useState, useEffect } from 'react';
+import { API_BASE_URL } from "../api";
 import { Link, useNavigate } from 'react-router-dom';
 
 function Moi() {
@@ -41,11 +42,6 @@ function Moi() {
 
   // État pour les messages
   const [message, setMessage] = useState({ text: '', type: '' });
-
-  // URL du backend - Dynamique selon l'environnement
-  const API_BASE_URL = window.location.hostname === 'localhost'
-    ? "http://localhost:8000"
-    : "http://51.20.191.156:8000";
 
   // ==================== FONCTIONS D'API POUR PHOTO DE PROFIL ====================
 
