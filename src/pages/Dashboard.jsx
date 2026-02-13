@@ -1,6 +1,7 @@
 // pages/Dashboard.jsx
 import { useState, useEffect } from 'react';
 import {Link, useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from "../api";
 import SimpleCommuneMap from '../components/SimpleCommuneMap';
 
 function Dashboard() {
@@ -88,12 +89,6 @@ const isSupervisorUser = () => {
   const normalizedRole = currentRole.toLowerCase();
   return normalizedRole === 'superviseur' || normalizedRole === 'supervisor';
 };
-
-  // URL du backend - Dynamique selon l'environnement
-  const API_BASE_URL = window.location.hostname === 'localhost'
-    ? "http://localhost:8000"
-    : "http://51.20.191.156:8000";
-
   // --- Fonction pour déterminer si l'utilisateur est un agent par rôle ---
   const isUserAgentByRole = () => {
     const currentRole = userRole || localStorage.getItem('cm_user_role') || '';
