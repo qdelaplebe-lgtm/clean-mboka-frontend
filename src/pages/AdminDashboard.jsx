@@ -1,6 +1,7 @@
 // pages/AdminDashboard.jsx
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from "../api";
 import SimpleCommuneMap from '../components/SimpleCommuneMap';
 
 // 🎯 FONCTIONS UTILITAIRES DE NORMALISATION (AJOUT CRITIQUE)
@@ -74,11 +75,6 @@ function AdminDashboard() {
   const [selectedAgentType, setSelectedAgentType] = useState('');
   const [newRole, setNewRole] = useState('');
   const [newZone, setNewZone] = useState({ commune: '', quartier: '' });
-
-  // URL du backend - Dynamique selon l'environnement
-  const API_BASE_URL = window.location.hostname === 'localhost'
-    ? "http://localhost:8000"
-    : "http://51.20.191.156:8000";
 
   // --- VÉRIFICATION DES PERMISSIONS ---
   const isAdminUser = () => {
