@@ -1,6 +1,7 @@
 // pages/SupervisorDashboard.jsx
 import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { API_BASE_URL } from "../api";
 import SimpleCommuneMap from '../components/SimpleCommuneMap';
 
 function SupervisorDashboard() {
@@ -41,11 +42,6 @@ function SupervisorDashboard() {
   const [showAssignmentModal, setShowAssignmentModal] = useState(false);
   const [selectedReport, setSelectedReport] = useState(null);
   const [selectedCollectorForAssignment, setSelectedCollectorForAssignment] = useState(null);
-
-  // URL du backend
-  const API_BASE_URL = window.location.hostname === 'localhost'
-    ? "http://localhost:8000"
-    : "http://51.20.191.156:8000";
 
   // === FONCTIONS UTILITAIRES DE NORMALISATION ===
   const normalizeString = (str) => {
