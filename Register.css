@@ -1,0 +1,96 @@
+/* Register.css - Styles spécifiques pour la page d'inscription */
+
+.register-container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--golden-brown-50) 0%, var(--golden-brown-100) 50%, var(--golden-brown-200) 100%);
+}
+
+.register-card {
+  background: white;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 40px rgba(193, 154, 107, 0.1);
+  border: 1px solid var(--golden-brown-200);
+}
+
+.register-input {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  border: 2px solid var(--warm-gray-300);
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.register-input:focus {
+  outline: none;
+  border-color: var(--golden-brown-500);
+  box-shadow: 0 0 0 3px rgba(193, 154, 107, 0.1);
+}
+
+.register-input:hover:not(:focus) {
+  border-color: var(--golden-brown-400);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 0.75rem;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: var(--warm-gray-500);
+  padding: 0.25rem;
+  transition: color 0.3s ease;
+}
+
+.password-toggle:hover {
+  color: var(--warm-gray-700);
+}
+
+.register-select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='%2378716c'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.75rem center;
+  background-size: 1.5em;
+}
+
+/* Animation pour les messages */
+.message-enter {
+  opacity: 0;
+  transform: translateY(-10px);
+}
+
+.message-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.message-exit {
+  opacity: 1;
+}
+
+.message-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 300ms, transform 300ms;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .register-container {
+    padding: 1rem;
+  }
+  
+  .register-card {
+    padding: 1.5rem;
+  }
+  
+  .register-input {
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+  }
+}

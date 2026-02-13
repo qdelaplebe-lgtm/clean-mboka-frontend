@@ -1,0 +1,198 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* ========== PALETTE MARRON DORÉ - Basée sur votre image ========== */
+  --golden-brown-50: #fdf8f0;
+  --golden-brown-100: #faebd7;
+  --golden-brown-200: #f0d9b5;
+  --golden-brown-300: #e6c7a8;
+  --golden-brown-400: #d4b483;  /* Tonalité moyenne - votre couleur de base */
+  --golden-brown-500: #c19a6b;  /* VOTRE COULEUR PRINCIPALE - Marron-doré */
+  --golden-brown-600: #b08d5a;
+  --golden-brown-700: #9c7c4b;
+  --golden-brown-800: #8a6d3b;
+  --golden-brown-900: #765c2e;
+  
+  /* ========== GRIS CHAUDS (pour harmonie avec le marron) ========== */
+  --warm-gray-50: #fafaf9;
+  --warm-gray-100: #f5f5f4;
+  --warm-gray-200: #e7e5e4;
+  --warm-gray-300: #d6d3d1;
+  --warm-gray-400: #a8a29e;
+  --warm-gray-500: #78716c;
+  --warm-gray-600: #57534e;
+  --warm-gray-700: #44403c;
+  --warm-gray-800: #292524;
+  --warm-gray-900: #1c1917;
+  
+  /* ========== COULEURS SÉMANTIQUES (qui s'harmonisent avec le marron) ========== */
+  --success-green: #10b981;      /* Vert émeraude */
+  --warning-amber: #f59e0b;      /* Ambre doré */
+  --error-rust: #dc2626;         /* Rouge rouille */
+  --info-teal: #0d9488;          /* Turquoise profond */
+  --accent-gold: #fbbf24;        /* Or vif pour les accents */
+}
+
+body {
+  font-family: sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========== CLASSES UTILITAIRES PERSONNALISÉES ========== */
+@layer components {
+  /* Boutons avec le nouveau style marron-doré */
+  .btn-golden-primary {
+    @apply bg-gradient-to-r from-[var(--golden-brown-600)] via-[var(--golden-brown-700)] to-[var(--golden-brown-800)] 
+           text-white font-bold shadow-lg hover:shadow-xl transition-all duration-300 
+           hover:-translate-y-0.5 active:translate-y-0;
+  }
+  
+  .btn-golden-secondary {
+    @apply border-2 border-[var(--golden-brown-300)] text-[var(--golden-brown-700)]
+           bg-white hover:bg-[var(--golden-brown-50)] font-semibold
+           transition-all duration-300 hover:border-[var(--golden-brown-500)];
+  }
+  
+  .btn-golden-outline {
+    @apply border-2 border-[var(--golden-brown-500)] text-[var(--golden-brown-700)]
+           hover:bg-[var(--golden-brown-50)] font-semibold
+           transition-all duration-300;
+  }
+  
+  /* Cartes avec fond marron-doré subtil */
+  .card-golden {
+    @apply bg-gradient-to-br from-white to-[var(--golden-brown-50)] 
+           border-2 border-[var(--golden-brown-200)] 
+           shadow-lg hover:shadow-xl transition-shadow duration-300;
+  }
+  
+  /* Badges avec les nouvelles couleurs */
+  .badge-status-pending {
+    @apply bg-yellow-100 text-yellow-800 border-l-4 border-l-yellow-500;
+  }
+  
+  .badge-status-in-progress {
+    @apply bg-[var(--golden-brown-100)] text-[var(--golden-brown-800)] 
+           border-l-4 border-l-[var(--golden-brown-500)];
+  }
+  
+  .badge-status-completed {
+    @apply bg-green-100 text-green-800 border-l-4 border-l-green-500;
+  }
+  
+  /* Inputs avec accent marron */
+  .input-golden {
+    @apply border-2 border-[var(--warm-gray-300)] rounded-xl 
+           focus:ring-2 focus:ring-[var(--golden-brown-300)] 
+           focus:border-[var(--golden-brown-500)] focus:outline-none
+           transition-all duration-300 bg-white;
+  }
+  
+  /* Arrière-plans de section */
+  .section-golden-bg {
+    @apply bg-gradient-to-br from-[var(--golden-brown-50)] 
+           via-[var(--golden-brown-100)/30] to-[var(--golden-brown-200)/20];
+  }
+  
+  /* Dégradés pour titres et en-têtes */
+  .text-gradient-golden {
+    @apply bg-gradient-to-r from-[var(--golden-brown-700)] to-[var(--golden-brown-900)] 
+           bg-clip-text text-transparent;
+  }
+  
+  /* Bordures décoratives */
+  .border-golden {
+    @apply border-2 border-[var(--golden-brown-300)];
+  }
+  
+  .border-golden-accent {
+    @apply border-l-4 border-l-[var(--golden-brown-500)];
+  }
+}
+
+/* ========== OVERRIDES POUR LE DASHBOARD ========== */
+
+/* Arrière-plan général de la page */
+.dashboard-bg {
+  background: linear-gradient(135deg, 
+    var(--golden-brown-50) 0%, 
+    var(--golden-brown-100)/30 50%, 
+    var(--golden-brown-200)/20 100%
+  );
+}
+
+/* Style pour les éléments actifs de navigation */
+.nav-item-active {
+  background: linear-gradient(90deg, 
+    var(--golden-brown-50) 0%, 
+    var(--golden-brown-100) 100%
+  );
+  border-color: var(--golden-brown-300);
+}
+
+/* État hover pour les cartes interactives */
+.hover-golden-lift {
+  @apply transition-all duration-300 hover:-translate-y-2 
+         hover:shadow-2xl hover:border-[var(--golden-brown-300)];
+}
+
+/* ========== ANIMATIONS ========== */
+@keyframes pulse-golden {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(193, 154, 107, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(193, 154, 107, 0);
+  }
+}
+
+.animate-pulse-golden {
+  animation: pulse-golden 2s infinite;
+}
+
+/* ========== RESPONSIVE ADJUSTMENTS ========== */
+@media (max-width: 768px) {
+  .card-golden {
+    @apply rounded-2xl;
+  }
+  
+  .btn-golden-primary {
+    @apply py-3 px-6 text-base;
+  }
+}
+
+/* ========== ACCESSIBILITÉ ========== */
+@media (prefers-reduced-motion: reduce) {
+  .btn-golden-primary,
+  .btn-golden-secondary,
+  .card-golden,
+  .hover-golden-lift {
+    @apply transition-none;
+  }
+  
+  .animate-pulse-golden {
+    animation: none;
+  }
+}
+
+/* ========== DARK MODE SUPPORT (optionnel) ========== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --golden-brown-50: #1c1917;
+    --golden-brown-100: #292524;
+    --golden-brown-200: #44403c;
+    --golden-brown-300: #57534e;
+    --golden-brown-400: #78716c;
+    --golden-brown-500: #a8a29e;
+    --golden-brown-600: #d6d3d1;
+    --golden-brown-700: #e7e5e4;
+    --golden-brown-800: #f5f5f4;
+    --golden-brown-900: #fafaf9;
+  }
+  
+  .card-golden {
+    @apply bg-gradient-to-br from-[var(--warm-gray-800)] to-[var(--warm-gray-900)];
+  }
+}
